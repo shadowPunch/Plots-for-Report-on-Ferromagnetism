@@ -1,0 +1,32 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.0]
+% Domain backgrounds
+\fill[felightblue!80] (-4,-1.2) rectangle (0,1.2);
+\fill[felightyellow!80] (0,-1.2) rectangle (4,1.2);
+
+\node[font=\large, feblue] at (-2, 0) {Domain 1};
+\node[font=\large, fered!80!black] at (2, 0) {Domain 2};
+
+% Domain 1 arrows (Up)
+\foreach \x in {-3.5,-2.5,-1.5}
+  \draw[-{Stealth[scale=1.5]}, feblue, thick] (\x,-0.5) -- (\x, 0.5);
+  
+% Rotating wall arrows (with protected coordinate math)
+\foreach \ang/\x in {170/-0.8, 140/-0.4, 90/0, 40/0.4, 10/0.8}
+  \draw[-{Stealth[scale=1.2]}, purple, thick]
+    ({\x-0.3*cos(\ang)}, {-0.3*sin(\ang)}) -- ({\x+0.3*cos(\ang)}, {0.3*sin(\ang)});
+    
+% Domain 2 arrows (Down)
+\foreach \x in {1.5,2.5,3.5}
+  \draw[-{Stealth[scale=1.5]}, fered, thick] (\x,0.5) -- (\x,-0.5);
+
+% Dimension lines and markers
+\draw[dashed, gray, thick] (-1,-1.4) -- (-1, 1.4);
+\draw[dashed, gray, thick] (1,-1.4) -- (1, 1.4);
+\draw[<->, black] (-1,-1.6) -- (1,-1.6);
+\node[below] at (0,-1.6) {$\delta_w \approx 100$\,nm};
+\node[above] at (0, 1.3) {\textbf{Bloch domain wall}};
+\end{tikzpicture}
+\caption{Schematic of a 180$^\circ$ Bloch domain wall.}
+\end{figure}
