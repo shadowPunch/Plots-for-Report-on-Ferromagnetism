@@ -1,0 +1,26 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=10cm, height=6.5cm,
+  xlabel={$T/T_C$}, ylabel={$M_s(T)/M_s(0)$},
+  xmin=0, xmax=1.15, ymin=0, ymax=1.05,
+  grid=both, grid style={line width=0.3pt, gray!30},
+  thick, legend pos=north east, legend style={font=\small},
+]
+% Mean-field approximation curve
+\addplot[feblue, thick, domain=0:0.999, samples=100] { sqrt( max(0, 1 - x) ) * (1 + 0.5*x) * (1/(1+0.5)) };
+
+% 3D Heisenberg curve (approximate)
+\addplot[fered, thick, dashed, domain=0:0.999, samples=100] { (max(0, 1 - x))^0.365 };
+
+% Tc drop-off line
+\draw[dashed, gray] (axis cs:1,0) -- (axis cs:1,1.05);
+\node[above left] at (axis cs:1,0.05) {$T_C$};
+
+\addlegendentry{Mean-field ($\beta=0.5$)}
+\addlegendentry{3D Heisenberg ($\beta=0.365$)}
+\end{axis}
+\end{tikzpicture}
+\caption{Spontaneous magnetization vs. Temperature.}
+\end{figure}
