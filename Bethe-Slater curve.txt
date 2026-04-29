@@ -1,0 +1,37 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=11cm, height=6cm,
+  xlabel={Interatomic distance / $d$-orbital radius ($d/r_d$)},
+  ylabel={Exchange integral $J_{ex}$ (arb. units)},
+  xmin=1, xmax=6, ymin=-0.6, ymax=1.1,
+  grid=both, grid style={line width=0.3pt, gray!30},
+  thick, xtick={1,2,3,4,5,6},
+]
+% The curve function
+\addplot[feblue, thick, domain=1:6, samples=50] { 0.9*(x-1.5)*exp(-(x-2.8)^2/1.2) };
+
+% Element points and labels
+\addplot[only marks, mark=*, mark size=3pt, fered] coordinates { (3.26, 0.84) };
+\node[above right, fered] at (axis cs:3.26, 0.84) {Fe};
+
+\addplot[only marks, mark=*, mark size=3pt, fegreen] coordinates { (3.64, 0.72) };
+\node[above right, fegreen] at (axis cs:3.64, 0.72) {Co};
+
+\addplot[only marks, mark=*, mark size=3pt, blue!80!black] coordinates { (4.0, 0.52) };
+\node[above right, blue!80!black] at (axis cs:4.0, 0.52) {Ni};
+
+\addplot[only marks, mark=*, mark size=3pt, orange] coordinates { (2.2, -0.4) };
+\node[below right, orange] at (axis cs:2.2, -0.4) {Mn};
+
+\addplot[only marks, mark=*, mark size=3pt, purple] coordinates { (1.7, -0.5) };
+\node[below left, purple] at (axis cs:1.7, -0.5) {Cr};
+
+% J=0 reference line
+\draw[dashed] (axis cs:1,-0) -- (axis cs:6,0);
+\node[right] at (axis cs:5.9, 0.08) {$J=0$};
+\end{axis}
+\end{tikzpicture}
+\caption{The Bethe--Slater curve.}
+\end{figure}
