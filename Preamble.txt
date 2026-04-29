@@ -1,0 +1,13 @@
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta}
+
+% Custom colors used in the plots
+\definecolor{feblue}{RGB}{30,80,160}
+\definecolor{fered}{RGB}{180,30,30}
+\definecolor{fegreen}{RGB}{20,130,60}
+\definecolor{felightblue}{RGB}{200,220,255}
+\definecolor{felightyellow}{RGB}{255,250,200}
+
+
