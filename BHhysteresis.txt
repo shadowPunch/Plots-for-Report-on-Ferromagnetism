@@ -1,0 +1,31 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=9cm, height=7cm,
+  xlabel={Applied field $H$}, ylabel={Flux density $B$},
+  xmin=-2.5, xmax=2.5, ymin=-1.4, ymax=1.4,
+  grid=both, grid style={line width=0.3pt, gray!30},
+  thick, axis lines=center, xtick={-2,-1,0,1,2}, ytick={-1,0,1},
+]
+% Upper and lower branches using hyperbolic tangent functions
+\addplot[feblue, thick, domain=-2.5:2.5, samples=50] { tanh(1.2*(x+0.7)) };
+\addplot[fered, thick, domain=-2.5:2.5, samples=50] { tanh(1.2*(x-0.7)) };
+
+% Remanence (Br) markers
+\draw[-{Stealth}, fegreen!70!black, thick] (axis cs:0,0.6) -- (axis cs:0.05,0.61);
+\node[right, fegreen!70!black] at (axis cs:0.05,0.62) {$B_r$};
+
+\draw[-{Stealth}, fegreen!70!black, thick] (axis cs:0,-0.6) -- (axis cs:0.05,-0.61);
+\node[right, fegreen!70!black] at (axis cs:0.05,-0.62) {$-B_r$};
+
+% Coercivity (Hc) markers
+\draw[-{Stealth}, orange, thick] (axis cs:-0.7,0.03) -- (-0.7,0.02);
+\node[above left, orange] at (axis cs:-0.6,0.05) {$-H_c$};
+
+\draw[-{Stealth}, orange, thick] (axis cs:0.7,-0.03) -- (0.7,-0.02);
+\node[below right, orange] at (axis cs:0.6,-0.05) {$H_c$};
+\end{axis}
+\end{tikzpicture}
+\caption{A $B$--$H$ hysteresis loop.}
+\end{figure}
